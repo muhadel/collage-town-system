@@ -1,0 +1,50 @@
+
+#tit
+{
+    margin-left: 300px;
+}
+.lgn
+{
+    margin-left: 20px;
+    border: 1px #000 solid;
+    background: #00C0C0;
+    border-radius: 4px;
+    height: 29.8px;
+    width: 90px;
+}
+.lgn:hover
+{
+    border: 1px #000 solid;
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+}
+.p1
+{
+    font-family: serif;
+    font-size: 20px;
+}
+.select_join {
+  width: 159px;
+  height: 28px;
+
+  background: url('http://s24.postimg.org/lyhytocf5/dropdown.png') no-repeat  right #FEFEFE;
+  border: #FEFEFE 1px solid;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0px 0px 10px 1px #FEFEFE;
+  box-shadow: inset 0px 0px 10px 1px #FEFEFE;
+}
+.select_join select {
+  background: transparent;
+  width: 170px;
+  font-size:10pt;
+  color:grey;
+
+  border-radius: 4  ;
+  height: 28px;
+  -webkit-appearance: none;
+}
+
+.button:hover
+{
+    border: 1px blue solid;
+}

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)http://www.sanwebe.com/2011/05/creating-pdf-using-php-fpdf-library -->
+<html class="wf-bree-n7-active wf-rooneyweb-n3-active wf-sourcecodepro-n4-active wf-active"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="search" type="application/opensearchdescription+xml" title="Search Sanwebe.com" href="http://www.sanwebe.com/opensearch.xml">
+<title>  Creating PDF Files using PHP FPDF library</title>
+<link rel="alternate" type="application/rss+xml" title="Sanwebe RSS Feed" href="http://www.sanwebe.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Sanwebe Comments Feed" href="http://www.sanwebe.com/comments/feed/">
+<link rel="alternate" type="application/atom+xml" title="Sanwebe RSS Feed" href="http://feeds.feedburner.com/saaraan">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="./Creating PDF Files using PHP FPDF library_files/style_v1.0.12.css" rel="stylesheet" type="text/css">
+<script src="./Creating PDF Files using PHP FPDF library_files/cb=gapi.loaded_1" async=""></script><script src="./Creating PDF Files using PHP FPDF library_files/cb=gapi.loaded_0" async=""></script><script id="facebook-jssdk" src="./Creating PDF Files using PHP FPDF library_files/sdk.js"></script><script type="text/javascript" async="" src="./Creating PDF Files using PHP FPDF library_files/platform.js" gapi_processed="true"></script><script async="" type="text/javascript" src="./Creating PDF Files using PHP FPDF library_files/ca-pub-0052126645916042.js"></script><script async="" src="./Creating PDF Files using PHP FPDF library_files/analytics.js"></script><script type="text/javascript" src="./Creating PDF Files using PHP FPDF library_files/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="./Creating PDF Files using PHP FPDF library_files/bodyscript.min_v1.6.js"></script>
+
+<!--Plugin Global Hide Admin Tool Bar 1.6.1 Active - Tag 74be16979710d4c4e7c6647856088456-->
+
+<!-- This website is patched against a big problem not solved from WordPress 3.3+ to date -->
+
+		<script type="text/javascript">
+			/* <![CDATA[ */
+			
+						jQuery(document).ready( function() {							
+				/* Use backticks instead of <code> for the Code button in the editor */
+				if ( typeof( edButtons ) !== 'undefined' ) {
+					edButtons[110] = new QTags.TagButton( 'code', 'code', '<code>', '</code>', 'c' );
+					QTags._buttonsInit();
+				}
+				
+				
+				/* Tab from topic title */
+				jQuery( '#bbp_topic_title' ).bind( 'keydown.editor-focus', function(e) {
+					if ( e.which !== 9 )
+						return;
+
+					if ( !e.ctrlKey && !e.altKey && !e.shiftKey ) {
+						if ( typeof( tinymce ) !== 'undefined' ) {
+							if ( ! tinymce.activeEditor.isHidden() ) {
+								var editor = tinymce.activeEditor.editorContainer;
+								jQuery( '#' + editor + ' td.mceToolbar > a' ).focus();
+							} else {
+								jQuery( 'textarea.bbp-the-content' ).focus();
+							}
+						} else {
+							jQuery( 'textarea.bbp-the-content' ).focus();
+						}
+
+						e.preventDefault();
+					}
+				});
+
+				/* Shift + tab from topic tags */
+				jQuery( '#bbp_topic_tags' ).bind( 'keydown.editor-focus', function(e) {
+					if ( e.which !== 9 )
+						return;
+
+					if ( e.shiftKey && !e.ctrlKey && !e.altKey ) {
+						if ( typeof( tinymce ) !== 'undefined' ) {
+							if ( ! tinymce.activeEditor.isHidden() ) {
+								var editor = tinymce.activeEditor.editorContainer;
+								jQuery( '#' + editor + ' td.mceToolbar > a' ).focus();
+							} else {
+								jQuery( 'textarea.bbp-the-content' ).focus();
+							}
+						} else {
+							jQuery( 'textarea.bbp-the-content' ).focus();
+						}
+
+						e.preventDefault();
+					}
+				});
+			});
+						/* ]]> */
+		</script>
+
+	
+        <!-- BuySellAds.com Ad Code -->
+        <script type="text/javascript">
+        (function(){
+          var bsa = document.createElement('script');
+              bsa.type= 'text/javascript';
+              bsa.async = true;
+              bsa.src='//s3.buysellads.com/ac/bsa.js';
+          (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+        })();
+        </script><script type="text/javascript" async="" src="./Creating PDF Files using PHP FPDF library_files/bsa.js"></script>
+        <!-- END BuySellAds.com Ad Code --> 
+      	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<script type="text/javascript">$(document).ready(function() {$(".fb-open-box").click(function(event){var iwidth=500;var iheight=374;var left=(screen.width/2)-(iwidth/2);var top=(screen.height/2)-(iheight/2);window.open("http://www.sanwebe.com?facebook=connect", "popupwindow", "scrollbars=yes,width="+iwidth+",height="+iheight+",top="+top+",left="+left);return false;});});</script> 
+<script type="text/javascript" src="./Creating PDF Files using PHP FPDF library_files/asj7puq.js"></script>
+<style type="text/css">.tk-bree{font-family:"bree",sans-serif;}.tk-rooney-web{font-family:"rooney-web",sans-serif;}.tk-source-code-pro{font-family:"source-code-pro",sans-serif;}</style><link rel="stylesheet" href="http://use.typekit.net/c/abf6f8/1w;bree,2,Y63:P:n7;rooney-web,2,Q8Z:P:n3;source-code-pro,2,Y1M:P:n4/d?3bb2a6e53c9684ffdc9a9afe1f5b2a62e5d76b099c828680e711f46a357c8b8d0d066312ae1f198978c6b438a33faf033b0487a95fbcccf06e386ba5768db5864da49688903d252b80a70ec6c56df735ec4726b8ac"><script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga'); 
+ga('create', 'UA-50194497-1', 'sanwebe.com');
+ga('send', 'pageview');
+</script>
+<link rel="icon" href="http://www.sanwebe.com/favicon.ico" type="image/x-icon">
+<script type="text/javascript" id="_bsap_js_3246a2e15c6824a11558262db4409e23" src="./Creating PDF Files using PHP FPDF library_files/s_3246a2e15c6824a11558262db4409e23.js" async="async"></script><script type="text/javascript" src="./Creating PDF Files using PHP FPDF library_files/pro.js" id="_bsap_premium_pro"></script><script type="text/javascript" id="_bsaPRO_js" src="./Creating PDF Files using PHP FPDF library_files/saved_resource" async="async"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f8;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3a5795;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #2f477a;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f8;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style><script id="_fbn_projs" type="text/javascript" src="./Creating PDF Files using PHP FPDF library_files/C6ADVKE.json"></script></head>
+<body style="">
+<script async="" type="text/javascript" src="./Creating PDF Files using PHP FPDF library_files/fancybar.js" id="_fancybar_js"></script>
+
+<!-- header start -->
+<a id="top" name="top"></a>
+<!-- Static navbar -->
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+<div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <h1 class="global_header_logo"><a class="navbar-brand" href="http://www.sanwebe.com/">Sanwebe.com</a></h1>
+
+        </div>
+        <div class="navbar-collapse collapse">
+		<ul id="menu-top-navigation" class="nav navbar-nav"><li class="divider-vertical"></li><li id="nav-3964" class="nav-depth-0 menu-item menu-item-type-custom menu-item-object-custom"><a href="http://www.sanwebe.com/forums/forum/general-discussions" class="menu-link main-menu-link">Forums</a></li>
+<li class="divider-vertical"></li><li id="nav-5517" class="nav-depth-0 menu-item menu-item-type-custom menu-item-object-custom"><a href="http://www.sanwebe.com/2014/09/useful-php-snippets" class="menu-link main-menu-link">PHP Snippets</a></li>
+<li class="divider-vertical"></li><li id="nav-3178" class="nav-depth-0 menu-item menu-item-type-custom menu-item-object-custom"><a href="http://www.sanwebe.com/2013/09/ajax-php-and-mysql-tutorials" class="menu-link main-menu-link">Tutorials</a></li>
+<li class="divider-vertical"></li><li id="nav-4983" class="nav-depth-0 menu-item menu-item-type-custom menu-item-object-custom"><a href="http://www.sanwebe.com/downloads" class="menu-link main-menu-link">Downloads</a></li>
+</ul>        
+          <ul class="nav navbar-nav navbar-right">
+            <form id="search-saaraan" class="navbar-form navbar-left" method="get" action="http://www.sanwebe.com/search">
+            <div class="nav-search-el">
+            <span class="search-icon fa fa-search"></span>
+            <input type="submit" value="">
+            </div>
+			<input type="text" class="search-input-box" placeholder="Search Sanwebe.com" name="q">
+            </form>
+            
+          </ul>
+        </div><!--/.nav-collapse -->
+</div>
+</div>
+<!-- header end -->   
+
+<div class="container">
+      
+<div class="sw-share-wrp">
+	<a href="http://www.sanwebe.com/2011/05/creating-pdf-using-php-fpdf-library#" class="sw-share-icon yspin" rel="nofollow">&nbsp;</a>
+    <div class="sw-share-buttons" style="margin-top: 1px; display: block; opacity: 1;">
+    <div id="sw-share-result"><div class="textlike">Like &amp; Share</div><ul class="sw-loaded-buttons"><li><iframe allowtransparency="true" frameborder="0" scrolling="no" src="./Creating PDF Files using PHP FPDF library_files/tweet_button.html" style="width:50px; height:65px;"></iframe></li><li><iframe src="./Creating PDF Files using PHP FPDF library_files/like.html" scrolling="no" frameborder="0" style="border:none;overflow:hidden; height:65px;" allowtransparency="true"></iframe></li><li style="height: 70px;margin-bottom:10px;overflow: hidden;"><iframe src="./Creating PDF Files using PHP FPDF library_files/fastbutton.html" allowtransparency="true" frameborder="0" scrolling="no" title="+1"></iframe></li></ul><div class="sw-close-btn">×</div></div>
+    </div>
+</div>    <!-- content start -->
+<div class="content-wrapper singlepage">
+    <div class="row">
+    <div class="col-md-8">
+        
+        <div class="inner-container" id="page_content">
+        
+
+<span class="sing-cmt-icn">
+<a href="http://www.sanwebe.com/2011/05/creating-pdf-using-php-fpdf-library#comments" title="Click to Leave a Comment."><span class="fa fa-comment sing-icn-bg">&nbsp;</span>1</a>
+</span>
+<h2>Creating PDF Files using PHP FPDF library </h2>
+<!-- <span class="post-meta"><span></span><span class="year"></span></span>-->
+<p class="first_para">You can use <a href="http://www.fpdf.org/" rel="nofollow">FPDF</a> library to easily create PDF file for your project. It’s a free alternative to other commercial PDF generators. It comes with many features too, which you can use to create a wonderful looking PDF files. FPDF is not an PHP extension, just include the class file in your project and you are ready to go, it works with both PHP 4 and PHP 5.<br>
+<span id="more-4748"></span></p><div class="ads-in-content"><script async="" src="./Creating PDF Files using PHP FPDF library_files/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-0052126645916042" data-ad-slot="4799710440" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe width="300" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;"></iframe></ins></ins></ins> <script>(adsbygoogle = window.adsbygoogle || []).push({}); </script></div><p></p>
+<h3>FPDF Basics</h3>
+<p>Today let’s learn to use it on our projects. Just <a rel="nofollow" href="http://www.fpdf.org/en/download.php">download FPDF library</a> and place the extracted file within your project folder. Create a PHP file with following code and execute just to see what happens.</p>
+<!-- codecolerer-core.php --><div id="sancode_1113974" class="codecolorer-container php blackboard" style="overflow:hidden;white-space:nowrap;width:100%;"><div class="exp-col" id="1113974-expcol">&nbsp;</div><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br></div></td><td onclick="selectText(&#39;code_1113974&#39;);return false;" id="code_1113974"><div class="php codecolorer"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">require</span><span class="br0">(</span><span class="st_h">'fpdf17/fpdf.php'</span><span class="br0">)</span><span class="sy0">;</span><br>
+<span class="re0">$pdf</span> <span class="sy0">=</span> <span class="kw2">new</span> FPDF<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span><br>
+<span class="re0">$pdf</span><span class="sy0">-&gt;</span><span class="me1">AddPage</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span><br>
+<span class="re0">$pdf</span><span class="sy0">-&gt;</span><span class="me1">SetFont</span><span class="br0">(</span><span class="st_h">'Arial'</span><span class="sy0">,</span><span class="st_h">'B'</span><span class="sy0">,</span><span class="nu0">16</span><span class="br0">)</span><span class="sy0">;</span><br>
+<span class="re0">$pdf</span><span class="sy0">-&gt;</span><span class="me1">Cell</span><span class="br0">(</span><span class="nu0">40</span><span class="sy0">,</span><span class="nu0">10</span><span class="sy0">,</span><span class="st_h">'Hello World!'</span><span class="br0">)</span><span class="sy0">;</span><br>
+<span class="re0">$pdf</span><span class="sy0">-&gt;</span><span class="me1">Output</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span><br>
+<span class="sy1">?&gt;</span></div></td></tr></tbody></table></div>
+<p>Let’s find-out what this code really does.<br>
+We basically start by including <em>fpdf.php</em> in our PHP file something like this :</p>
+<!-- codecolerer-core.php --><div id="sancode_3777685" class="codecolorer-container php blackboard" style="overflow:hidden;white-space:nowrap;width:100%;"><div class="exp-col" id="3777685-expcol">&nbsp;</div><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br></div></td><td onclick="selectText(&#39;code_3777685&#39;);return false;" id="code_3777685"><div class="php codecolorer"><span class="kw1">require</span><span class="br0">(</span><span class="st_h">'fpdf17/fpdf.php'</span><span class="br0">)</span><span class="sy0">;</span></div></td></tr></tbody></table></div>
+<p>Now we need to create an FPDF object, we can just call FPDF() constructor with default values to do that, or we can also specify different values that controls the output of PDF file, such as orientation, unit and size.</p>
+<!-- codecolerer-core.php --><div id="sancode_1832465" class="codecolorer-container php blackboard" style="overflow:hidden;white-space:nowrap;width:100%;"><div class="exp-col" id="1832465-expcol">&nbsp;</div><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br></div></td><td onclick="selectText(&#39;code_1832465&#39;);return false;" id="code_1832465"><div class="php codecolorer"><span class="re0">$pdf</span> <span class="sy0">=</span> <span class="kw2">new</span> FPDF<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span> <span class="co1">//default </span><br>
+<br>
+<span class="co1">//OR with settings : FPDF('orientation','unit','size');</span><br>
+<span class="co1">//Orientation -- P or Portrait &amp; L or Landscape</span><br>
+<span class="co1">//Unit --pt: point, mm: millimeter, cm: centimeter, in: inch</span><br>
+<span class="co1">//Size -- A3, A4, A5, Letter, Legal</span><br>
+<br>
+<span class="re0">$pdf</span> <span class="sy0">=</span> <span class="kw2">new</span> FPDF<span class="br0">(</span><span class="st_h">'P'</span><span class="sy0">,</span><span class="st_h">'mm'</span><span class="sy0">,</span><span class="st_h">'A4'</span><span class="br0">)</span><span class="sy0">;</span> <span class="co1">//with page settings</span></div></td></tr></tbody></table></div>
+<p>And then the mandatory step is to include font size, in this example its Arial font with bold weight and 16 size.</p>
+<!-- codecolerer-core.php --><div id="sancode_1960283" class="codecolorer-container php blackboard" style="overflow:hidden;white-space:nowrap;width:100%;"><div class="exp-col" id="1960283-expcol">&nbsp;</div><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br></div></td><td onclick="selectText(&#39;code_1960283&#39;);return false;" id="code_1960283"><div class="php codecolorer"><span class="re0">$pdf</span><span class="sy0">-&gt;</span><span class="me1">SetFont</span><span class="br0">(</span><span class="st_h">'Arial'</span><span class="sy0">,</span><span class="st_h">'B'</span><span class="sy0">,</span><span class="nu0">16</span><span class="br0">)</span><span class="sy0">;</span></div></td></tr></tbody></table></div>
+<p>We can now print a line of text with Cell() on PDF document. A cell is a rectangular area, possibly framed, which contains a line of text. It is output at the current position. We specify its dimensions, its text (centered or aligned), if borders should be drawn, and where the current position moves after it (to the right, below or to the beginning of the next line). To add a frame, we would do this:</p>
+<!-- codecolerer-core.php --><div id="sancode_2042064" class="codecolorer-container php blackboard" style="overflow:hidden;white-space:nowrap;width:100%;"><div class="exp-col" id="2042064-expcol">&nbsp;</div><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br></div></td><td onclick="selectText(&#39;code_2042064&#39;);return false;" id="code_2042064"><div class="php codecolorer"><span class="re0">$pdf</span><span class="sy0">-&gt;</span><span class="me1">Cell</span><span class="br0">(</span><span class="nu0">40</span><span class="sy0">,</span><span class="nu0">10</span><span class="sy0">,</span><span class="st_h">'Hello World !'</span><span class="sy0">,</span><span class="nu0">1</span><span class="br0">)</span><span class="sy0">;</span></div></td></tr></tbody></table></div>
+<p>To add a new cell next to it with centered text and go to the next line, we would do:</p>
+<!-- codecolerer-core.php --><div id="sancode_1032605" class="codecolorer-container php blackboard" style="overflow:hidden;white-space:nowrap;width:100%;"><div class="exp-col" id="1032605-expcol">&nbsp;</div><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br></div></td><td onclick="selectText(&#39;code_1032605&#39;);return false;" id="code_1032605"><div class="php codecolorer"><span class="re0">$pdf</span><span class="sy0">-&gt;</span><span class="me1">Cell</span><span class="br0">(</span><span class="nu0">60</span><span class="sy0">,</span><span class="nu0">10</span><span class="sy0">,</span><span class="st_h">'Powered by FPDF.'</span><span class="sy0">,</span><span class="nu0">0</span><span class="sy0">,</span><span class="nu0">1</span><span class="sy0">,</span><span class="st_h">'C'</span><span class="br0">)</span><span class="sy0">;</span></div></td></tr></tbody></table></div>
+<p>Finally we send PDF output to the browser or file, below example outputs PDF to the browser, to save it as a file we just need to pass a filename.</p>
+<!-- codecolerer-core.php --><div id="sancode_7286247" class="codecolorer-container php blackboard" style="overflow:hidden;white-space:nowrap;width:100%;"><div class="exp-col" id="7286247-expcol">&nbsp;</div><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br></div></td><td onclick="selectText(&#39;code_7286247&#39;);return false;" id="code_7286247"><div class="php codecolorer"><span class="re0">$pdf</span><span class="sy0">-&gt;</span><span class="me1">Output</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span> <span class="co1">//default output to browser</span><br>
+<br>
+<span class="co1">//PDF output settings</span><br>
+<span class="co1">//I: to the browser. </span><br>
+<span class="co1">//D: force a file download</span><br>
+<span class="co1">//F: save to a local file</span><br>
+<span class="co1">//S: return the document as a string. name is ignored.</span><br>
+<span class="re0">$pdf</span><span class="sy0">-&gt;</span><span class="me1">Output</span><span class="br0">(</span><span class="st_h">'sara.pdf'</span><span class="sy0">,</span> <span class="st_h">'D'</span><span class="br0">)</span><span class="sy0">;</span> <span class="co1">//force download file</span></div></td></tr></tbody></table></div>
+<h3>PDF with line breaks</h3>
+<p>So far we are able to create a PDF file, but above example just outputs a single line of text, what was missing here was the line breaks. We can easily achieve line breaks using MultiCell() method, all we need to specify is the width and height of the cell.</p>
+<!-- codecolerer-core.php --><div id="sancode_2488615" class="codecolorer-container php blackboard" style="overflow:hidden;white-space:nowrap;width:100%;"><div class="exp-col" id="2488615-expcol">&nbsp;</div><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br></div></td><td onclick="selectText(&#39;code_2488615&#39;);return false;" id="code_2488615"><div class="php codecolorer"><span class="kw2">&lt;?php</span><br>
+<span class="kw1">require</span><span class="br0">(</span><span class="st_h">'fpdf17/fpdf.php'</span><span class="br0">)</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$the_content</span> <span class="sy0">=</span> <span class="st0">"Ut sagittis erat vitae nunc viverra, ut bibendum dui sodales. In fermentum, augue vel vestibulum porttitor, lectus ipsum faucibus justo, tincidunt luctus velit odio quis orci. "</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$pdf</span> <span class="sy0">=</span> <span class="kw2">new</span> FPDF<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span><br>
+<span class="re0">$pdf</span><span class="sy0">-&gt;</span><span class="me1">AddPage</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span><br>
+<span class="re0">$pdf</span><span class="sy0">-&gt;</span><span class="me1">SetFont</span><span class="br0">(</span><span class="st_h">'Arial'</span><span class="sy0">,</span><span class="st_h">'B'</span><span class="sy0">,</span><span class="nu0">16</span><span class="br0">)</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">//specify width and height of the cell Multicell(width, height, string)</span><br>
+<span class="re0">$pdf</span><span class="sy0">-&gt;</span><span class="me1">Multicell</span><span class="br0">(</span><span class="nu0">190</span><span class="sy0">,</span><span class="nu0">10</span><span class="sy0">,</span><span class="re0">$the_content</span><span class="br0">)</span><span class="sy0">;</span> <br>
+<br>
+<span class="re0">$pdf</span><span class="sy0">-&gt;</span><span class="me1">Output</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span><br>
+<br>
+<span class="sy1">?&gt;</span></div></td></tr></tbody></table></div>
+<h3>Create PDF from a URL</h3>
+<p>You can easily create PDF file from a URL, we need to play a bit with PHP DOM or you can use <a href="http://simplehtmldom.sourceforge.net/" target="_blank" rel="nofollow">Simple HTML DOM Parser</a> for that matter, have a look at the code below.</p>
+<!-- codecolerer-core.php --><div id="sancode_9664788" class="codecolorer-container php blackboard" style="overflow:hidden;white-space:nowrap;width:100%;"><div class="exp-col" id="9664788-expcol">&nbsp;</div><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br></div></td><td onclick="selectText(&#39;code_9664788&#39;);return false;" id="code_9664788"><div class="php codecolorer"><span class="kw2">&lt;?php</span><br>
+<span class="co1">//include fpdf</span><br>
+<span class="kw1">require</span><span class="br0">(</span><span class="st_h">'fpdf/fpdf.php'</span><span class="br0">)</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">//read the contents of a url you want to convert to PDF</span><br>
+<span class="re0">$content</span> <span class="sy0">=</span> <span class="kw3">file_get_contents</span><span class="br0">(</span><span class="st_h">'http://www.sanwebe.com/2011/05/generating-pdf-using-php-fpdf-library'</span><span class="br0">)</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">//Load PHP DOM</span><br>
+<span class="re0">$doc</span> <span class="sy0">=</span> <span class="kw2">new</span> DOMDocument<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">//load HTML in PHP DOM</span><br>
+<span class="sy0">@</span><span class="re0">$doc</span><span class="sy0">-&gt;</span><span class="me1">loadHTML</span><span class="br0">(</span><span class="re0">$content</span><span class="br0">)</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">//extract the text of a DIV element for PDF</span><br>
+<span class="re0">$text_for_pdf</span> <span class="sy0">=</span> <span class="re0">$doc</span><span class="sy0">-&gt;</span><span class="me1">getElementById</span><span class="br0">(</span><span class="st_h">'page_content'</span><span class="br0">)</span><span class="sy0">-&gt;</span><span class="me1">nodeValue</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">//use FPDF</span><br>
+<span class="re0">$pdf</span> <span class="sy0">=</span> <span class="kw2">new</span> FPDF<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span><br>
+<span class="re0">$pdf</span><span class="sy0">-&gt;</span><span class="me1">AddPage</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span><br>
+<span class="re0">$pdf</span><span class="sy0">-&gt;</span><span class="me1">SetFont</span><span class="br0">(</span><span class="st_h">'Arial'</span><span class="sy0">,</span><span class="st_h">'B'</span><span class="sy0">,</span><span class="nu0">12</span><span class="br0">)</span><span class="sy0">;</span><br>
+<br>
+<span class="co1">//specify width and height of the cell Multicell(width, height, string)</span><br>
+<span class="co1">//load extracted text into FPDF</span><br>
+<span class="re0">$pdf</span><span class="sy0">-&gt;</span><span class="me1">Multicell</span><span class="br0">(</span><span class="nu0">190</span><span class="sy0">,</span><span class="nu0">10</span><span class="sy0">,</span> <span class="re0">$text_for_pdf</span><span class="br0">)</span><span class="sy0">;</span><br>
+<br>
+<span class="re0">$pdf</span><span class="sy0">-&gt;</span><span class="me1">Output</span><span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span> <span class="co1">//output the file</span><br>
+<span class="sy1">?&gt;</span></div></td></tr></tbody></table></div>
+<div><script async="" src="./Creating PDF Files using PHP FPDF library_files/adsbygoogle.js"></script><ins class="adsbygoogle" style="display: inline-block; width: 300px; height: 250px;" data-ad-client="ca-pub-0052126645916042" data-ad-slot="4799710440" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_1_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe width="300" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;"></iframe></ins></ins></ins> <script>(adsbygoogle = window.adsbygoogle || []).push({}); </script></div><h3 class="related_post_title">Related Articles:</h3><ul class="related_post"><li><a href="http://www.sanwebe.com/2015/02/10-exceptionally-reliable-php-snippets-for-developers" title="10 Exceptionally Reliable PHP Snippets for Developers">10 Exceptionally Reliable PHP Snippets for Developers</a></li><li><a href="http://www.sanwebe.com/2014/11/creating-custom-wordpress-widget" title="Creating Custom WordPress Widget">Creating Custom WordPress Widget</a></li><li><a href="http://www.sanwebe.com/2014/11/creating-reddit-login-button-in-php" title="Creating Reddit Login Button in PHP">Creating Reddit Login Button in PHP</a></li><li><a href="http://www.sanwebe.com/2014/10/ajax-image-upload-resize-with-imagemagick-jquery-php" title="Ajax Image upload &amp; Resize with PHP ImageMagick &amp; jQuery">Ajax Image upload &amp; Resize with PHP ImageMagick &amp; jQuery</a></li><li><a href="http://www.sanwebe.com/2014/09/multi-items-payment-with-paypal-rest-api-php" title="Multi Items Payment with PayPal REST API (PHP)">Multi Items Payment with PayPal REST API (PHP)</a></li></ul>
+	<div id="comments">
+	
+	
+			<h2 id="comments-title">
+			One Comment            <span class="comment-title-icon"></span>
+                       <span class="add-comment"><a href="http://www.sanwebe.com/2011/05/creating-pdf-using-php-fpdf-library#respond">Add Comment</a></span>
+            		</h2>
+
+				<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-35755">
+		<article id="comment-35755" class="comment">
+			<footer class="comment-meta">
+				<div class="comment-author vcard">
+					<img alt="" src="./Creating PDF Files using PHP FPDF library_files/13d986819934153b55e3d6e679afc562" class="avatar avatar-120 photo" height="120" width="120"><span class="fn">hansraj</span> <span class="comment-date"><a href="http://www.sanwebe.com/2011/05/creating-pdf-using-php-fpdf-library/comment-page-1#comment-35755"><time pubdate="" datetime="2015-01-13T13:04:59+00:00">January 13, 2015 at 1:04 pm</time></a></span>									</div><!-- .comment-author .vcard -->
+							</footer>
+			<div class="comment-content"><p>Hi,</p>
+<p>I am using fpdf for creating dynamic pdf pages.<br>
+Its working fine, but I am unable to create link with multicell table row data.</p>
+<p>Menace I ma fetching the data from data base and displaying in dynamically<br>
+As table rows by using multicell table. I want to generate anchor-link with row data.</p>
+<p>Please can you help me or sent me some example or link for this.</p>
+<p>Thanks &amp; Regards<br>
+Hansraj Gupta</p>
+</div>
+			
+				<a class="comment-reply-link" href="http://www.sanwebe.com/2011/05/creating-pdf-using-php-fpdf-library?replytocom=35755#respond" onclick="return addComment.moveForm( &quot;comment-35755&quot;, &quot;35755&quot;, &quot;respond&quot;, &quot;4748&quot; )" aria-label="Reply to hansraj"><div class="reply"><span class="fs1" aria-hidden="true" data-icon=""></span> Add Reply</div></a>			<!-- .reply -->
+		</article><!-- #comment-## -->
+	</li><!-- #comment-## -->
+		</ol>
+
+			
+<noscript>JavaScript is required to post any comments!</noscript>
+<div id="respond" class="comment-respond">
+<h3 id="reply-title" class="comment-reply-title"><small>
+<a rel="nofollow" id="cancel-comment-reply-link" href="http://www.sanwebe.com/2011/05/creating-pdf-using-php-fpdf-library#respond" style="display:none;">Cancel reply</a></small></h3>
+<form action="http://www.sanwebe.com/2011/05/creating-pdf-using-php-fpdf-library#" method="post" id="commentform" class="comment-form">
+<div id="comment_ajax_results"></div>
+<span style="float:right;margin-top:-3px">
+<a href="http://www.sanwebe.com/2011/05/creating-pdf-using-php-fpdf-library#" class="fb-open-box" title="Quickly login with your Facebook account!" rel="nofollow">&nbsp;</a>
+</span>
+<p class="comment-notes">Use <a href="http://gravatar.com/" target="_blank" rel="nofollow">Gravatar</a> for Comment Pic | Start a 
+<a href="http://www.sanwebe.com/forums/forum/general-discussions">topic</a> for crucial discussion.</p>
+<p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> 
+<input id="author" name="author" type="text" value="" size="30" aria-required="true"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label>
+<input id="email" name="email" type="email" value="" size="30" aria-required="true"></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30"></p>
+
+<p class="comment-form-comment"><label for="comment"><b>Comment</b> 
+<span style="font-size:11px;">
+(Basic HTML tags like &lt;b&gt;, &lt;a&gt;, &lt;i&gt;, &lt;code&gt; can be used. )
+</span>
+</label><br>
+<textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>												
+<p class="form-submit">
+<input type="button" id="submit" class="sanwebe_comment_btn" value="Post Comment">
+<span id="comment-loading" style="display:none">
+<i class="fa fa-refresh fa-spin"></i> Please wait...
+</span>
+<input type="hidden" name="comment_post_ID" value="4748" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p>
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="fe99995096"></p><!-- BEGIN: subscribe to comments reloaded --><p><input type="checkbox" name="subscribe-reloaded" id="subscribe-reloaded" value="yes" checked="checked">&nbsp;Notify me of followup comments via e-mail. You can also <a href="http://www.sanwebe.com/?page_id=99999&srp=4748&srk=&sra=s">subscribe</a> without commenting.</p><!-- END: subscribe to comments reloaded --><p style="display: none;"></p><input type="hidden" id="ak_js" name="ak_js" value="1428958038696"></form>
+</div>
+
+</div><!-- #comments --></div>
+
+ </div>
+                
+        <div class="col-md-4">
+            <div class="content-wraper-sidebar">
+            	<ul>
+				<li id="email_subscribe_widget-2" class="widget widget_email_subscribe_widget"><h2 class="widgettitle">Join 30k Subscribers</h2><div class="subscribe_email_wrp"><div class="subscribe_desc">Enter email address for updates.</div><div class="subcribe_inputs"><input type="email" placeholder="Your Email Address" name="s_email" id="s_email" class="subscribe_input"><button class="subscribe_but"><span style="display:none" class="fa fa-cog fa-spin subs_ajax_loader"></span><span class="subs_ajax_subscribe">Subscribe</span></button></div><div id="subscribe_result"></div></div></li>
+<li id="author_bio_widget-2" class="widget widget_author_bio_widget"><div class="author-speech-bubble-wrp author-add-bg"><img src="./Creating PDF Files using PHP FPDF library_files/san_image_1.jpg" class="side-author-img" height="100" width="100">Sanwebe is created and written by Saran Chamling, a Web enthusiast from India. It is built on WordPress, hosted by <a href="http://www.dreamhost.com/r.cgi?1391135" target="_blank" rel="nofollow">Dreamhost</a> and fonts by Typekit</div><div class="sw-side-follow" id="sw-side-flo"><ul class="sw-author-buttons"><li style="width: 65px;"><iframe allowtransparency="true" frameborder="0" scrolling="no" src="./Creating PDF Files using PHP FPDF library_files/follow_button.html" style="width:300px; height:20px;"></iframe></li><li style="width:85px;"><div id="___follow_0" style="text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 80px; height: 20px; background: transparent;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 80px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I0_1428958041660" name="I0_1428958041660" src="./Creating PDF Files using PHP FPDF library_files/follow.html" data-gapiattached="true"></iframe></div><script type="text/javascript">(function() {var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;po.src = 'https://apis.google.com/js/platform.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);})();</script></li><li><iframe src="./Creating PDF Files using PHP FPDF library_files/follow(1).html" scrolling="no" frameborder="0" style="border:none;overflow:hidden; height:21px;" allowtransparency="true"></iframe></li></ul></div></li>
+<li id="bsa-2" class="widget widget_bsa">
+        <!-- BuySellAds.com Zone Code -->
+        <div id="bsap_1289305" class="bsap bsap_1289305" data-serve="CYSD52E"><a href="http://srv.buysellads.com/ads/click/x/GTND423LFTAIKKQYCAS4YKQWCVADL27JCYSD6Z3JCE7DE5QYCTADP2JKC6BD6537CWBI6K3EHJNCLSIZ" class="ad0 odd " title="Script for Your Website - Get notifications of spelling or gramma errors from users" id="bsa_5510594" target="_blank" rel="nofollow">
+<img src="./Creating PDF Files using PHP FPDF library_files/262157-1426434159.png" width="" height="" alt=""></a><a href="http://srv.buysellads.com/ads/click/x/GTND423LFTAIKKQYCAS4YKQWCVADL2JMCABI4Z3JCE7DE5Q7CEAD423KC6BD6537CWBI6K3EHJNCLSIZ" class="ad1  even" title="Sign Up to Get Free $10 DigitalOcean Credit" id="bsa_5484363" target="_blank" rel="nofollow">
+<img src="./Creating PDF Files using PHP FPDF library_files/260676-1425482401.gif" width="" height="" alt=""></a><a href="http://srv.buysellads.com/ads/click/x/GTND423LFTAIKKQYCAS4YKQWCVADL2JUCY7I6Z3JCE7DE5QYCV7DKKJKC6BD6537CWBI6K3EHJNCLSIZ" class="ad2 odd " title="Lawyers Legal Attorney WordPress Theme" id="bsa_5530291" target="_blank" rel="nofollow">
+<img src="./Creating PDF Files using PHP FPDF library_files/263371-1427219442.jpg" width="" height="" alt=""></a><a href="http://srv.buysellads.com/ads/click/x/GTND423LFTAIKKQYCAS4YKQWCVADL2JYC67D6Z3JCE7DE5QYCKBI653KC6BD6537CWBI6K3EHJNCLSIZ" class="ad3  even" title="Big Bundle All in One" id="bsa_5568157" target="_blank" rel="nofollow">
+<img src="./Creating PDF Files using PHP FPDF library_files/265219-1428379101.jpg" width="" height="" alt=""></a><a href="http://srv.buysellads.com/ads/click/x/GTND423LFTAIKKQYCAS4YKQWCVADL2JYCE7IEZ3JCE7DE5QYCKAIC23KC6BD6537CWBI6K3EHJNCLSIZ" class="ad4 odd " title="SSD Cloud Hosting" id="bsa_5569397" target="_blank" rel="nofollow">
+<img src="./Creating PDF Files using PHP FPDF library_files/264809-1428079146.png" width="" height="" alt=""></a><!-- no ad -->
+
+<a href="http://buysellads.com/buy/detail/167555/zone/1289305?utm_source=site_167555&utm_medium=website&utm_campaign=imagetext&utm_content=zone_1289305" class="adhere">Advertise Here</a>
+
+
+<script type="text/javascript" id="auto_1" class="ignoreme"> if (typeof(BSACallback) !== 'undefined') BSACallback(); </script></div>
+        <!-- END BuySellAds.com Zone Code -->
+      </li>
+<li id="text-18" class="widget widget_text">			<div class="textwidget"><div class="fb-like-box fb_iframe_widget" data-href="https://www.facebook.com/sanwebe" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=365936720119443&amp;color_scheme=light&amp;container_width=310&amp;header=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fsanwebe&amp;locale=en_US&amp;sdk=joey&amp;show_border=false&amp;show_faces=true&amp;stream=false"><span style="vertical-align: bottom; width: 300px; height: 241px;"><iframe name="f20c9d756" width="1000px" height="1000px" frameborder="0" allowtransparency="true" scrolling="no" title="fb:like_box Facebook Social Plugin" src="./Creating PDF Files using PHP FPDF library_files/like_box.html" style="border: none; visibility: visible; width: 300px; height: 241px;" class=""></iframe></span></div><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Creating PDF Files using PHP FPDF library_files/6Dg4oLkBbYq.html" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Creating PDF Files using PHP FPDF library_files/6Dg4oLkBbYq(1).html" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=365936720119443&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script></div>
+		</li>
+                <li id="highlighted_posts_widget-2" class="widget widget_highlighted_posts_widget"><h2 class="widgettitle">Highlights</h2><ul><li><a href="http://www.sanwebe.com/2012/07/resize-multiple-images-in-a-folder-using-php" title="Resize Multiple Images in a Folder using PHP">Resize Multiple Images in a Folder using PHP</a></li><li><a href="http://www.sanwebe.com/2012/03/cornjob-commands-in-cpanel" title="Cornjob Commands in cPanel">Cornjob Commands in cPanel</a></li><li><a href="http://www.sanwebe.com/2012/08/sign-in-with-twitter-using-php" title="Sign in with Twitter using PHP">Sign in with Twitter using PHP</a></li><li><a href="http://www.sanwebe.com/2013/09/php-cache-dynamic-pages-speed-up-load-times" title="PHP Cache Dynamic Pages To Speed Up Load Times">PHP Cache Dynamic Pages To Speed Up Load Times</a></li><li><a href="http://www.sanwebe.com/2013/08/creating-rss-feed-using-php-simplexml" title="Creating RSS XML feed Using PHP SimpleXML">Creating RSS XML feed Using PHP SimpleXML</a></li><li><a href="http://www.sanwebe.com/2014/11/creating-custom-wordpress-widget" title="Creating Custom WordPress Widget">Creating Custom WordPress Widget</a></li><li><a href="http://www.sanwebe.com/2015/03/advantages-of-eclipse-based-solutions-for-developing-android-application" title="Advantages Of Eclipse Based Solutions For Developing Android Application">Advantages Of Eclipse Based Solutions For Developing Android Application</a></li><li><a href="http://www.sanwebe.com/2012/05/ajax-image-upload-with-progressbar-with-jquery-and-php" title="Ajax Image Upload with Progressbar (jQuery and PHP)">Ajax Image Upload with Progressbar (jQuery and PHP)</a></li><li><a href="http://www.sanwebe.com/2012/05/social-icon-set-2" title="Social Icon Set 2 (Rounded)">Social Icon Set 2 (Rounded)</a></li><li><a href="http://www.sanwebe.com/2014/07/free-alternatives-to-microsoft-word" title="Free Alternatives to Microsoft Word">Free Alternatives to Microsoft Word</a></li><li><a href="http://www.sanwebe.com/2013/07/creating-valid-rss-feed-using-php" title="Creating RSS XML feed with PHP DOMDocument">Creating RSS XML feed with PHP DOMDocument</a></li><li><a href="http://www.sanwebe.com/2012/08/php-get-post-variables" title="PHP $_GET &amp; $_POST Variables">PHP $_GET &amp; $_POST Variables</a></li></ul></li>
+                </ul>
+            </div>
+        </div> 
+         
+
+        </div>
+      </div>
+     <!-- content end -->
+  </div>  
+<div class="scrolltop" style="display: block;">Go Top ↑</div>
+
+<div id="footer">
+<div class="footer-inner">
+
+  <div class="container">
+    <div class="row">
+        <div class="col-md-3">
+        	<li id="text-16" class="widget widget_text"><h2 class="widgettitle">About Sanwebe</h2>
+			<div class="textwidget">Welcome to sanwebe.com, a blog 100% inspired by our ever changing web development world, it's a small effort to provide useful related resources, tips and tutorials to web developers and newbies. Blog was launched back in 2011, and recently been moved from saaraan to sanwebe.com, blog needs some catching up to do, but your valuable feedbacks will always help.</div>
+		</li>
+        </div>
+        <div class="col-md-3">
+        	<li id="text-15" class="widget widget_text"><h2 class="widgettitle">Tags</h2>
+			<div class="textwidget"><div class="tagcloud"><a href="http://www.sanwebe.com/tag/ajax" title="9 topics">Ajax</a>
+<a href="http://www.sanwebe.com/tag/css-css3" title="CSS &amp; CSS3">CSS</a>
+<a href="http://www.sanwebe.com/tag/basics" title="Elementary How tos">Elementary</a>
+<a href="http://www.sanwebe.com/tag/facebook" title="Facebook">Facebook</a>
+<a href="http://www.sanwebe.com/tag/google" title="Google">Google</a>
+<a href="http://www.sanwebe.com/tag/html-html5" title="HTML &amp; HTML5">HTML</a>
+<a href="http://www.sanwebe.com/tag/icons" title="Icons">Icons</a>
+<a href="http://www.sanwebe.com/tag/illustrator" title="Illustrator">Illustrator</a>
+<a href="http://www.sanwebe.com/tag/javascript" title="JavaScript">JavaScript</a>
+<a href="http://www.sanwebe.com/tag/joomla-extensions" title="Joomla">Joomla</a>
+<a href="http://www.sanwebe.com/tag/jquery-mootool" title="jQuery">jQuery</a>
+<a href="http://www.sanwebe.com/tag/microsoft" title="Microsoft">Microsoft</a>
+<a href="http://www.sanwebe.com/tag/miscellaneous" title="Miscellaneous">Misc</a>
+<a href="http://www.sanwebe.com/tag/mootool" title="Mootool">Mootool</a>
+<a href="http://www.sanwebe.com/tag/paypal" title="PayPal">PayPal</a>
+<a href="http://www.sanwebe.com/tag/photoshop" title="Photoshop">Photoshop</a>
+<a href="http://www.sanwebe.com/tag/php" title="PHP">PHP</a>
+<a href="http://www.sanwebe.com/tag/freebies" title="Resources">Resources</a>
+<a href="http://www.sanwebe.com/tag/reviews" title="Reviews">Reviews</a>
+<a href="http://www.sanwebe.com/tag/seo" title="SEO">SEO</a>
+<a href="http://www.sanwebe.com/tag/twitter" title="Twitter">Twitter</a>
+<a href="http://www.sanwebe.com/tag/wordpress" title="WordPress">WordPress</a></div></div>
+		</li>
+        </div>
+        <div class="col-md-3">
+        	<li id="categories-2" class="widget widget_categories"><h2 class="widgettitle">Categories</h2>
+		<ul>
+	<li class="cat-item cat-item-4"><a href="http://www.sanwebe.com/category/cms">CMS</a>
+</li>
+	<li class="cat-item cat-item-38"><a href="http://www.sanwebe.com/category/html-css">HTML-CSS</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://www.sanwebe.com/category/jquery-mootool">jQuery</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://www.sanwebe.com/category/other">Misc</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="http://www.sanwebe.com/category/php">PHP</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="http://www.sanwebe.com/category/freebies">Resources</a>
+</li>
+	<li class="cat-item cat-item-61"><a href="http://www.sanwebe.com/category/snippets">Snippets</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://www.sanwebe.com/category/how-to">Tips</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://www.sanwebe.com/category/uncategorized">Uncategorized</a>
+</li>
+		</ul>
+</li>
+        </div>
+        <div class="col-md-3">
+        	<li id="recent-comments-2" class="widget widget_recent_comments"><h2 class="widgettitle">Recent Comments</h2>
+<ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link">asdsad</span> on <a href="http://www.sanwebe.com/2012/05/ajax-image-upload-with-progressbar-with-jquery-and-php/comment-page-1#comment-36315">Ajax Image Upload with Progressbar (jQuery and PHP)</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://motorcyclecomparisonchart.com/" rel="external nofollow" class="url">Sernian Mckinsley</a></span> on <a href="http://www.sanwebe.com/2015/03/ajax-shopping-cart-with-php-and-jquery/comment-page-1#comment-36314">Ajax Shopping Cart with PHP and jQuery</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://www.sanwebe.com/2014/09/useful-php-snippets" rel="external nofollow" class="url">Useful PHP Snippets</a></span> on <a href="http://www.sanwebe.com/2011/01/check-curl-is-available-using-php/comment-page-1#comment-36313">Check CURL is available using PHP</a></li><li class="recentcomments"><span class="comment-author-link">vikram solanki</span> on <a href="http://www.sanwebe.com/2013/06/creating-simple-shopping-cart-with-php/comment-page-4#comment-36312">Creating Simple Shopping Cart with PHP</a></li><li class="recentcomments"><span class="comment-author-link">clems</span> on <a href="http://www.sanwebe.com/2013/03/addremove-input-fields-dynamically-with-jquery/comment-page-2#comment-36311">Add/Remove Input Fields Dynamically with jQuery</a></li></ul></li>
+        </div>
+    </div>
+    <div class="row">
+    	<div class="footer-cpy-txts"><span>© <a href="https://plus.google.com/108054684530298582648" target="_blank" title="Visit Google Page" rel="publisher">Sanwebe.com</a> 2011-2015.  All code <a href="http://opensource.org/licenses/MIT" rel="license">MIT license</a> | <a href="http://www.sanwebe.com/contact" title="Contact Sanwebe">Contact</a> | <a href="http://www.sanwebe.com/write-for-sanwebe-com" title="Write article for Sanwebe">Write for Sanwebe.com</a></span> <span class="footer-cpy-rigt"><a rel="nofollow" href="http://www.dreamhost.com/r.cgi?1391135" target="_blank">DH Hosted</a> | <a href="http://wordpress.org/" target="_blank" rel="nofollow" title="Powered by Wordpress">Wordpress</a></span></div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+   
+<script type="text/javascript">$(document).ready( function(){$(".colorbox").colorbox();var loaded = false;var pageUrl = location.href;var pagetTitle = document.title;var sw_ajaxurl = "http://www.sanwebe.com/wp-admin/admin-ajax.php";$("a.sw-share-icon").on( "click", function(event){event.preventDefault();});$('a.sw-share-icon').mouseenter(function() {$(".sw-share-icon").removeClass("xspin").addClass("yspin");var showing = $(".sw-share-buttons").css("display");if(showing=="none"){$(".sw-share-icon").removeClass("cspin");$(".sw-share-buttons").css("marginTop", "-100px").show().animate({opacity: 1, marginTop:"1px"},200);if(!loaded){$.ajax({type: "POST",url: sw_ajaxurl,data: {url: pageUrl, title: pagetTitle, action:"sw_load_share_btns"}}).done(function( msg ){$( "#sw-share-result" ).html(msg);});loaded = true;}}	});setTimeout(function(){if(!loaded){$("a.sw-share-icon").trigger("mouseenter");}}, 20000);$( "div.sw-share-wrp" ).on( "click", "div.sw-close-btn", function(event){$(".sw-share-icon").removeClass("yspin").addClass("xspin"); $(".sw-share-buttons").animate({opacity: 0, marginTop:"-100px"},100).hide(200);});$("button.subscribe_but").click(function(event){event.preventDefault();var vemail = $("#s_email").val();if(vemail == ""){alert("Please enter your email address!"); return false;}$(".subs_ajax_loader").show();$(".subs_ajax_subscribe").hide();$.ajax({type: "POST",dataType:"json",url: sw_ajaxurl,data: {action: "send_verification", email: vemail, opt:1}}).done(function( msg ) {if(msg.type=="err"){$( "#subscribe_result" ).html("<div class=\"alert alert-warning\">"+ msg.message +"</div>");}else if(msg.type=="msg"){$("#subscribe_result").html("<div class=\"alert alert-success\">"+ msg.message +"</div>");$("#gl_subscribe_btn").hide();$("#s_email").val("");}$(".subs_ajax_loader").hide();$(".subs_ajax_subscribe").show();});});});</script>
+<!--Plugin Global Hide Admin Tool Bar 1.6.1 Active - Tag 74be16979710d4c4e7c6647856088456-->
+
+<!-- This website is patched against a big problem not solved from WordPress 3.3+ to date -->
+
+    <script>
+        jQuery(document).ready( function() {
+
+            /* Use <code> instead of backticks for the Code button in the editor */
+            if ( typeof( edButtons ) !== 'undefined' ) {
+                edButtons[110] = new QTags.TagButton( 'code', 'code', '<code>', '</code>', 'c' );
+                QTags._buttonsInit();
+            }
+        });
+    </script>
+    <script type="text/javascript">$(document).ready( function(){var ajaxurl = "http://www.sanwebe.com/wp-admin/admin-ajax.php";$("a.sw-author-load-share").on( "click", function(e) { e.preventDefault();var a = $(this);$(".sw-author-load-init").hide();$(".sw-author-load-img").show();$.ajax({ type: "POST",url: ajaxurl,data: {action: 'sw_load_follow_btns'}}).done(function(msg) {$(a).parent().animate({width:"280px"}).delay(200).html(msg);});});});</script><script type="text/javascript" src="./Creating PDF Files using PHP FPDF library_files/form.js"></script>
+
+
+
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Page Caching using disk: enhanced
+Database Caching 5/10 queries in 0.006 seconds using disk
+Object Caching 1019/1033 objects using disk
+
+ Served from: www.sanwebe.com @ 2015-04-14 00:57:48 by W3 Total Cache --><div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" role="dialog" tabindex="-1" style="display: none;"><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxTitle" style="float: left;"></div><div id="cboxCurrent" style="float: left;"></div><button type="button" id="cboxPrevious"></button><button type="button" id="cboxNext"></button><button id="cboxSlideshow"></button><div id="cboxLoadingOverlay" style="float: left;"></div><div id="cboxLoadingGraphic" style="float: left;"></div></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none; max-width: none;"></div></div><iframe name="oauth2relay342083959" id="oauth2relay342083959" src="./Creating PDF Files using PHP FPDF library_files/postmessageRelay.html" tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe></body></html>

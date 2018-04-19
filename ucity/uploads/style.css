@@ -1,0 +1,97 @@
+* 
+{
+    margin: 0px;
+    padding: 0px;
+    background: #EEE;
+}
+
+#holder {
+    left 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+}
+
+
+.header
+{
+    background: #444;
+    background: #3D3D3E;
+    background: #272727;
+    background: #333;
+    /*background:	#1bb8dc;*/
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    width: auto;
+    height: 70px;
+    width: 100%;
+    
+
+}
+
+
+.nav
+{
+    background-color: #F00;
+    width: 100%;
+    margin-left: 20%;
+
+}
+
+
+.navigation
+{
+    background: #333;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    width: auto;
+    height: 20px;
+}
+
+.footer
+{
+    background: #333;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    width: auto;
+    height: 70px;
+}
+.container
+{
+    margin: auto;
+    /*background: #666;*/
+    background: rgba(102, 102, 102, 0.76);
+    background: rgba(213, 213, 213, 0.61);
+
+
+    width:1100px;
+    height: 1000px;
+    float: none;
+    /*height: 100%;*/
+    /*overflow: hidden*/
+    
+    /*display: block;*/
+}
+
+
+div
+{
+    width: 400px;
+    color: #FFF;
+}
+
+
+
+.div2
+{
+    background-color: #00F;
+}
+
+.div3
+{
+    background-color: #080;
+}
